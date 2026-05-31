@@ -59,8 +59,8 @@ function App() {
             </div>
             <div id='main-device-time'>
               {hostBattery.isCharging ?
-                `Charging time: ${ConvertHoursMinutes(hostBattery.chargingTime)}` :
-                `Discharging time: ${ConvertHoursMinutes(hostBattery.dischargingTime)}`
+                `Charging time: ${ConvertHoursMinutes(hostBattery?.chargingTime)}` :
+                `Discharging time: ${ConvertHoursMinutes(hostBattery?.dischargingTime || 0)}`
               }
             </div>
           </>
