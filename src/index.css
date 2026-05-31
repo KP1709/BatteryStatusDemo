@@ -101,5 +101,5 @@ div#card>#main-device-battery-icon {
 #unsupported-message {
   font-size: 0.9rem;
   text-align: center;
-  color: var(--text);
+  color: var(--ink-black);
 }
