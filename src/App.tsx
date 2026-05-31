@@ -41,7 +41,9 @@ const BatteryStatusIcon = ({ level, isCharging }: { level: number; isCharging: b
 
 const ConvertHoursMinutes = (seconds: number) => {
   if (seconds === Infinity) return '?';
-  return new Date(seconds * 1000).toISOString().substring(11, 16);
+  const hours = new Date(seconds * 1000).toISOString().substring(11, 13);
+  const minutes = new Date(seconds * 1000).toISOString().substring(14, 16);
+  return `${hours}h ${minutes}m`;
 };
 
 function App() {
@@ -61,7 +63,7 @@ function App() {
             <div id='main-device-time'>
               {hostBattery.charging ?
                 `Charging time: ${ConvertHoursMinutes(hostBattery?.chargingTime)}` :
-                `Discharging time: ${ConvertHoursMinutes(hostBattery?.dischargingTime)}`}
+                `Time left: ${ConvertHoursMinutes(hostBattery?.dischargingTime)}`}
             </div>
           </>
         }
@@ -71,7 +73,7 @@ function App() {
             <div id='main-device-battery-icon'>
               <BatteryStatusIcon level={0} isCharging={false} />
             </div>
-            <div id='main-device-name'>Unknown</div>
+            <div id='main-device-time'>Unknown</div>
           </>
         }
       </div>
