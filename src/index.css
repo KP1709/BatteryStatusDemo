@@ -1,0 +1,105 @@
+:root {
+  --ink-black: #001524ff;
+  --stormy-teal: #15616dff;
+  --papaya-whip: #ffecd1ff;
+
+  --text: var(--ink-black);
+  --text-h: var(--ink-black);
+  --bg: var(--papaya-whip);
+  --border: var(--stormy-teal);
+  --icon: var(--ink-black);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: var(--papaya-whip);
+    --text-h: var(--papaya-whip);
+    --bg: var(--stormy-teal);
+    --border: var(--ink-black);
+    --icon: var(--papaya-whip);
+  }
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+h2#outer-card-header {
+  font-size: 1rem;
+}
+
+div#card {
+  border: 5px solid var(--border);
+  background-color: var(--bg);
+  width: 200px;
+  height: 150px;
+  padding: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: 10px;
+}
+
+div#card>h2 {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  margin: 0;
+  padding: 10px;
+  color: var(--text-h);
+  font-size: 1rem;
+}
+
+div#card>#main-device-time {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+}
+
+div#card>#main-device-percentage {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  font-size: 2.5rem;
+}
+
+div#card>#main-device-battery-icon {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--icon);
+}
+
+#unsupported-message {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text);
+}
