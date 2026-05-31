@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 type BatteryState = {
     level: number;
-    isCharging: boolean;
+    charging: boolean;
     chargingTime: number;
     dischargingTime: number;
 };
@@ -45,7 +45,7 @@ const useHostDeviceBattery = () => {
 
             setBattery({
                 level: batteryManager.level,
-                isCharging: batteryManager.isCharging,
+                charging: batteryManager.charging,
                 chargingTime: batteryManager.chargingTime,
                 dischargingTime: batteryManager.dischargingTime,
             });

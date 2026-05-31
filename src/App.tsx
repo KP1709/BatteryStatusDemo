@@ -40,6 +40,7 @@ const BatteryStatusIcon = ({ level, isCharging }: { level: number; isCharging: b
 };
 
 const ConvertHoursMinutes = (seconds: number) => {
+  if (seconds === Infinity) return '?';
   return new Date(seconds * 1000).toISOString().substring(11, 16);
 };
 
@@ -55,13 +56,12 @@ function App() {
           <>
             <div id='main-device-percentage'>{Math.round(hostBattery.level * 100)}%</div>
             <div id='main-device-battery-icon'>
-              <BatteryStatusIcon level={hostBattery?.level * 100} isCharging={hostBattery.isCharging} />
+              <BatteryStatusIcon level={hostBattery?.level * 100} isCharging={hostBattery.charging} />
             </div>
             <div id='main-device-time'>
-              {hostBattery.isCharging ?
+              {hostBattery.charging ?
                 `Charging time: ${ConvertHoursMinutes(hostBattery?.chargingTime)}` :
-                `Discharging time: ${ConvertHoursMinutes(hostBattery?.dischargingTime || 0)}`
-              }
+                `Discharging time: ${ConvertHoursMinutes(hostBattery?.dischargingTime)}`}
             </div>
           </>
         }
