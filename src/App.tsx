@@ -67,7 +67,7 @@ function App() {
             </div>
           </>
         }
-        {!hostBattery || !isSupported &&
+        {!isSupported &&
           <>
             <div id='main-device-percentage'>?</div>
             <div id='main-device-battery-icon'>
@@ -77,7 +77,7 @@ function App() {
           </>
         }
       </div>
-      {!isSupported && !hostBattery &&
+      {!isSupported &&
         <p id='unsupported-message'>Battery Status API is not supported in this browser.</p>
       }
       {isSupported && !hostBattery &&
